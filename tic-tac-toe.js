@@ -29,8 +29,16 @@ window.onload = function() {
 
                 }
             currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
-        }
-    );
+              }
+           );
+        div.addEventListener("mouseover", function() {
+        div.classList.add("hover");
+        });
+    
+        div.addEventListener("mouseout", function() {
+            div.classList.remove("hover");
+        });
+
 }
 }
 

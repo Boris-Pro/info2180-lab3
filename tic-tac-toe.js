@@ -31,9 +31,10 @@ window.onload = function() {
                 else if(currentPlayer == 'O') {
                     div.classList.add("square.O");
                     }
+                currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
 
                 }
-            currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+            //currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
               }
            );
         div.addEventListener("mouseover", function() {
@@ -62,6 +63,24 @@ window.onload = function() {
       
         return false;
       }
+
+    const newGame = document.querySelector(".btn");
+    newGame.addEventListener("click", function(){
+        board = ['', '', '', '', '', '', '', '', ''];
+        gameActive = true;
+        currentPlayer = 'X';
+        //console.log("new game");
+        document.getElementById('status').textContent = `Move your mouse over a square and click to play an X or an O.`;
+        document.getElementById('status').classList.remove("you-won")
+        const squares = document.querySelectorAll(".square")
+        squares.forEach(square => {
+            square.textContent = '';
+            square.classList.remove('X', 'O');
+          }) ;
+          
+  });
+    
+
 
 }
 
